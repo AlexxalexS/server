@@ -3,6 +3,7 @@ const BodyParser = require("body-parser");
 const Speakeasy = require("speakeasy");
 
 var app = Express();
+const port = process.env.PORT || 3000;
 
 app.use(BodyParser.json());
 app.use(BodyParser.urlencoded({ extended: true }));
@@ -32,6 +33,6 @@ app.post("/totp-validate", (request, response, next) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log("Listening at :3000...");
+app.listen(port, () => {
+    console.log(`Listening at: ${port}...`);
 });
